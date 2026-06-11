@@ -1,157 +1,217 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agro Brasil - Educação e Sustentabilidade</title>
-
-<style>
-:root{
-    --vermelho1:#B71C1C;
-    --vermelho2:#D32F2F;
-    --vermelho3:#7F0000;
-    --fundo:#fff6f6;
-}
-
-/* BASE */
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:Arial; background:var(--fundo); color:#111; font-size:20px; line-height:1.7; transition:0.3s;}
-a{text-decoration:none; color:white; font-weight:bold;}
-.container{width:90%; max-width:1200px; margin:auto; padding:40px 0;}
-.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px;}
-.card{background:white; padding:20px; border-left:6px solid var(--vermelho2); border-radius:10px; box-shadow:0 3px 10px rgba(0,0,0,0.1); transition:0.3s;}
-.card:hover{transform:translateY(-5px);}
-.extra{display:none; margin-top:10px;}
-h1,h2,h3{transition:0.3s;}
-h2{color:var(--vermelho1); margin-bottom:20px;}
-header{text-align:center; position:relative; height:70vh; overflow:hidden; display:flex; flex-direction:column; align-items:center; justify-content:center; color:white;}
-header video{position:absolute; width:100%; height:100%; object-fit:cover; z-index:-1; filter:brightness(40%);}
-header .btn{background:var(--vermelho1); color:white; border:none; padding:10px 15px; margin:5px; border-radius:8px; cursor:pointer; transition:0.3s;}
-header .btn:hover{background:var(--vermelho3); transform:scale(1.05);}
-nav{background:var(--vermelho3); text-align:center; padding:12px; position:sticky; top:0; z-index:1000;}
-nav a{margin:10px;}
-footer{background:var(--vermelho3); color:white; text-align:center; padding:20px; margin-top:50px;}
-
-/* GRÁFICOS */
-.bar{background:#ddd; border-radius:20px; overflow:hidden; margin:8px 0;}
-.bar span{display:block; background:var(--vermelho2); color:white; padding:5px;}
-
-/* MAPA SIMBÓLICO */
-.mapa{background:linear-gradient(135deg,#ffdddd,#fff); padding:20px; border-radius:10px; text-align:center; margin-top:20px;}
-
-/* ALTO CONTRASTE */
-.alto-contraste{background:black !important; color:white !important;}
-.alto-contraste .card{background:black !important; border:1px solid yellow;}
-.alto-contraste h1,h2,h3{color:yellow !important;}
-.alto-contraste .btn{background:yellow !important; color:black !important;}
-
-/* RESPONSIVO */
-@media (max-width:768px){body{font-size:18px;}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro & Sustentabilidade - Laura Cristina</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: #FFF5F8;
+            color: #4A2A33;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        header {
+            background: linear-gradient(135deg, #C2185B, #EC407A);
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+        header h1 {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+        header h2 {
+            font-size: 24px;
+            font-weight: normal;
+        }
+        .botoes {
+            margin-top: 20px;
+        }
+        button {
+            background: white;
+            color: #C2185B;
+            border: none;
+            padding: 12px 20px;
+            margin: 5px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #F8BBD0;
+        }
+        nav {
+            background: #AD1457;
+            padding: 15px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+            font-weight: bold;
+        }
+        section {
+            width: 90%;
+            max-width: 1100px;
+            margin: 30px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #C2185B;
+            margin-bottom: 15px;
+        }
+        img {
+            width: 100%;
+            border-radius: 15px;
+            margin-top: 15px;
+        }
+        .saiba {
+            display: inline-block;
+            margin-top: 15px;
+            background: #EC407A;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+        }
+        .saiba:hover {
+            background: #C2185B;
+        }
+        footer {
+            background: #AD1457;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        .contraste {
+            background: black;
+            color: white;
+        }
+        .contraste section {
+            background: #111;
+            color: white;
+        }
+        .contraste h2 {
+            color: #FF80AB;
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-    <video autoplay muted loop>
-        <source src="https://cdn.pixabay.com/video/2023/03/10/154393-817302878_large.mp4" type="video/mp4">
-    </video>
-    <h1>Agro Brasil - Educação e Sustentabilidade</h1>
-    <p>Explore a tecnologia, inovação e cuidado ambiental no agronegócio brasileiro</p>
-    <div>
-        <button class="btn" onclick="aumentar()">Aumentar</button>
-        <button class="btn" onclick="diminuir()">Diminuir</button>
-        <button class="btn" onclick="contraste()">Contraste</button>
-    </div>
-</header>
+    <header>
+        <h1>Agro & Sustentabilidade</h1>
+        <h2>Projeto desenvolvido por Laura Cristina</h2>
+        <p>Produção agrícola, tecnologia e preservação ambiental para um futuro sustentável.</p>
 
-<nav>
-    <a href="#importancia">Importância</a>
-    <a href="#sustentabilidade">Sustentabilidade</a>
-    <a href="#tecnologia">Tecnologia</a>
-    <a href="#dados">Dados</a>
-</nav>
+        <div class="botoes">
+            <button onclick="aumentarTexto()">Aumentar Texto</button>
+            <button onclick="diminuirTexto()">Diminuir Texto</button>
+            <button onclick="contraste()">Contraste</button>
+        </div>
+    </header>
 
-<div class="container">
+    <nav>
+        <a href="#agro">Agro</a>
+        <a href="#sustentabilidade">Sustentabilidade</a>
+        <a href="#tecnologia">Tecnologia</a>
+    </nav>
 
-<!-- IMPORTANCIA -->
-<section id="importancia">
-<h2>Importância do Agro</h2>
-<div class="grid">
-<div class="card">
-<h3>Alimentação</h3>
-<p>Produz alimentos para bilhões de pessoas.</p>
-<button class="btn" onclick="toggle('a')">Saiba mais</button>
-<div id="a" class="extra">
-<p>Garante variedade de produtos, segurança alimentar e acesso a alimentos de qualidade.</p>
-</div>
-</div>
+    <section id="agro">
+        <h2>O que é o Agronegócio?</h2>
+        <p>O agronegócio é um dos setores mais importantes da economia brasileira, responsável pela produção de alimentos, geração de empregos e desenvolvimento econômico.</p>
+        <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854" alt="Agricultura sustentável">
+        <a class="saiba" href="agro.html" target="_blank">Saiba Mais</a>
+    </section>
 
-<div class="card">
-<h3>Economia</h3>
-<p>Fortalece o Brasil</p>
-<button class="btn" onclick="toggle('b')">Saiba mais</button>
-<div id="b" class="extra">
-<p>Representa grande parte do PIB brasileiro, exportações e geração de empregos diretos e indiretos.</p>
-</div>
-</div>
-</div>
-</section>
+    <section id="sustentabilidade">
+        <h2>Sustentabilidade no Campo</h2>
+        <p>A sustentabilidade busca equilibrar a produção agrícola, preservação ambiental e desenvolvimento social, garantindo recursos para as futuras gerações.</p>
+        <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399" alt="Plantação sustentável">
+        <a class="saiba" href="sustentabilidade.html" target="_blank">Saiba Mais</a>
+    </section>
 
-<!-- SUSTENTABILIDADE -->
-<section id="sustentabilidade">
-<h2>Sustentabilidade</h2>
-<div class="grid">
-<div class="card"><h3>Preservação do Solo e Natureza</h3><p>Práticas que protegem o solo e o ecossistema.</p></div>
-<div class="card"><h3>Uso Consciente da Água</h3><p>Irrigação eficiente e redução de desperdícios.</p></div>
-<div class="card"><h3>Produção Responsável</h3><p>Equilíbrio entre produtividade e responsabilidade ambiental e social.</p></div>
-</div>
-</section>
+    <section id="tecnologia">
+        <h2>Tecnologia Agrícola</h2>
+        <p>A tecnologia no campo inclui drones, sensores, máquinas inteligentes e agricultura de precisão, aumentando a produtividade e reduzindo impactos ambientais.</p>
+        <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff" alt="Tecnologia no campo">
+        <a class="saiba" href="tecnologia.html" target="_blank">Saiba Mais</a>
+    </section>
 
-<!-- TECNOLOGIA -->
-<section id="tecnologia">
-<h2>Tecnologia no Campo</h2>
-<div class="grid">
-<div class="card"><h3>Drones e Sensores</h3><p>Monitoramento aéreo das plantações.</p></div>
-<div class="card"><h3>IA e Agricultura de Precisão</h3><p>Melhora a produtividade e prevê condições climáticas.</p></div>
-<div class="card"><h3>Energia Renovável</h3><p>Uso de energia solar e biomassa nas fazendas.</p></div>
-</div>
-</section>
+    <section id="grafico">
+        <h2>Indicadores de Sustentabilidade</h2>
+        <div id="grafico-container">
+            <!-- Aqui você pode inserir um gráfico de uma biblioteca como Chart.js, ou outro que preferir -->
+            <canvas id="grafico"></canvas>
+        </div>
+    </section>
 
-<!-- MAPA -->
-<section class="mapa">
-<h2>Exportação Brasileira</h2>
-<p>Brasil exporta alimentos para mais de 150 países</p>
-<p>🌎 América, Europa, Ásia e África</p>
-</section>
+    <section id="mapa">
+        <h2>Mapa Interativo</h2>
+        <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-56.0%2C-33.0%2C-34.0%2C-5.0&amp;layer=mapnik"
+            width="100%" height="450" style="border:0;" allowfullscreen=""
+            loading="lazy">
+        </iframe>
+    </section>
 
-<!-- GRÁFICOS -->
-<section id="dados">
-<h2>Dados do Agro</h2>
-<p>Exportações</p>
-<div class="bar"><span style="width:90%">90%</span></div>
-<p>Empregos</p>
-<div class="bar"><span style="width:70%">70%</span></div>
-<p>Sustentabilidade</p>
-<div class="bar"><span style="width:80%">80%</span></div>
-</section>
+    <section id="video">
+        <h2>Vídeo Educativo sobre Agronegócio</h2>
+        <iframe width="100%" height="450" src="https://www.youtube.com/embed/5mKxQAF7r84" title="Agronegócio" allowfullscreen></iframe>
+    </section>
 
-</div>
+    <footer>
+        <p>Laura Cristina • Agro & Sustentabilidade</p>
+    </footer>
 
-<footer>
-<p>Agro Brasil • Educação e Sustentabilidade • Desenvolvido para estudo e divulgação • ♿ Acessível</p>
-</footer>
+    <script>
+        let tamanho = 18;
+        function aumentarTexto() {
+            tamanho += 2;
+            document.body.style.fontSize = tamanho + "px";
+        }
+        function diminuirTexto() {
+            if (tamanho > 12) {
+                tamanho -= 2;
+                document.body.style.fontSize = tamanho + "px";
+            }
+        }
+        function contraste() {
+            document.body.classList.toggle("contraste");
+        }
 
-<script>
-let size=20;
-function aumentar(){size+=2;document.body.style.fontSize=size+"px";}
-function diminuir(){if(size>14){size-=2;document.body.style.fontSize=size+"px";}}
-function contraste(){document.body.classList.toggle("alto-contraste");}
-function toggle(id){const el=document.getElementById(id);el.style.display=el.style.display==="block"?"none":"block";}
-</script>
-
+        // Exemplo de gráfico (usando Chart.js - você precisa adicionar a biblioteca Chart.js no projeto)
+        // Caso queira um gráfico real, insira o script e configure o gráfico
+        // Exemplo:
+        // const ctx = document.getElementById('grafico').getContext('2d');
+        // new Chart(ctx, {
+        //     type: 'bar',
+        //     data: {
+        //         labels: ['Sustentabilidade', 'Economia de Água', 'Tecnologia'],
+        //         datasets: [{
+        //             label: 'Percentual',
+        //             data: [90, 85, 92],
+        //             backgroundColor: ['#C2185B', '#EC407A', '#F8BBD0']
+        //         }]
+        //     },
+        //     options: {
+        //         responsive: true,
+        //         scales: {
+        //             y: { beginAtZero: true, max: 100 }
+        //         }
+        //     }
+        // });
+    </script>
 </body>
 </html>
-
-
-
