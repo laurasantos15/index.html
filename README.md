@@ -7,29 +7,29 @@
 <h3> Preservação Ambiental</h3>
 <p>Práticas modernas ajudam a preservar recursos naturais e aumentar
 a eficiência da produção agrícola.</p>
-<p>O uso de rotação de culturas, cobertura do solo e plantio direto
-reduz a erosão e mantém a fertilidade da terra.</p>
-<p>Além disso, muitas fazendas implementam corredores ecológicos
-para proteger fauna e flora locais.</p>
+<p>O uso de técnicas como rotação de culturas, plantio direto e cobertura do solo
+ajuda a manter a fertilidade da terra e reduzir a erosão.</p>
+<p>Algumas propriedades também criam áreas de preservação e corredores ecológicos,
+protegendo a fauna e flora locais.</p>
 </div>
 
 <div class="card">
 <h3> Uso Consciente da Água</h3>
 <p>Tecnologias de irrigação reduzem desperdícios e melhoram a produtividade.</p>
-<p>Sistemas de monitoramento do solo e sensores ajudam a aplicar a
-quantidade exata de água necessária para cada plantação.</p>
-<p>O reuso de água e captação de chuva são práticas cada vez mais comuns
-para reduzir o consumo de recursos hídricos.</p>
+<p>Sistemas de monitoramento do solo e sensores permitem aplicar a quantidade exata
+de água necessária para cada plantação, evitando excessos.</p>
+<p>O reuso de água e a captação de chuva estão se tornando práticas comuns,
+contribuindo para a preservação dos recursos hídricos.</p>
 </div>
 
 <div class="card">
 <h3> Produção Responsável</h3>
 <p>O futuro do agro depende do equilíbrio entre produtividade,
 preservação ambiental e responsabilidade social.</p>
-<p>Certificações de sustentabilidade garantem que os produtos sejam
+<p>Certificações de sustentabilidade ajudam a garantir que os produtos sejam
 produzidos respeitando normas ambientais e sociais.</p>
-<p>Programas de educação e capacitação de agricultores promovem
-boas práticas que beneficiam comunidades e preservam o meio ambiente.</p>
+<p>Programas de capacitação e educação para agricultores promovem
+boas práticas, beneficiando comunidades e preservando o meio ambiente.</p>
 </div>
 
 </div>
