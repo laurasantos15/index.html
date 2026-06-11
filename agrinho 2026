@@ -410,3 +410,11 @@ function alternarContraste(){
 
 </body>
 </html>
+
+function alternarContraste(){
+    document.body.classList.toggle("alto-contraste");
+}
+</script>
+
+</body>
+</html>
