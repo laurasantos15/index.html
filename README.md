@@ -1,292 +1,155 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agro e Sustentabilidade</title>
-
+<title>Agro Brasil - Educação e Sustentabilidade</title>
 <style>
 :root{
-    --vermelho-principal:#B71C1C;
-    --vermelho-secundario:#D32F2F;
-    --fundo:#FFF8F8;
-    --texto:#111;
+  --vermelho1:#B71C1C;
+  --vermelho2:#D32F2F;
+  --vermelho3:#7F0000;
+  --fundo:#fff6f6;
 }
-
-/* BASE */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    background:var(--fundo);
-    color:var(--texto);
-    font-size:20px;
-    line-height:1.8;
-}
-
-/* HEADER */
-header{
-    background:linear-gradient(135deg,var(--vermelho-principal),var(--vermelho-secundario));
-    color:white;
-    text-align:center;
-    padding:50px 20px;
-}
-
-h1{
-    font-size:2.5rem;
-}
-
-.controles{
-    margin-top:20px;
-}
-
-.btn{
-    background:#B71C1C;
-    color:white;
-    border:none;
-    padding:10px 15px;
-    margin:5px;
-    border-radius:8px;
-    cursor:pointer;
-}
-
-/* NAV */
-nav{
-    background:#7F0000;
-    text-align:center;
-    padding:10px;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin:10px;
-    font-weight:bold;
-}
-
-/* CONTAINER */
-.container{
-    width:90%;
-    max-width:1100px;
-    margin:auto;
-    padding:40px 0;
-}
-
-/* CARDS */
-.card-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:20px;
-}
-
-.card{
-    background:white;
-    padding:20px;
-    border-left:6px solid var(--vermelho-secundario);
-    border-radius:10px;
-    box-shadow:0 3px 10px rgba(0,0,0,0.1);
-}
-
-.card h3{
-    color:#8B0000;
-}
-
-/* BOTÃO SAIBA MAIS */
-.card button{
-    margin-top:10px;
-}
-
-/* ALTO CONTRASTE */
-.alto-contraste{
-    background:black !important;
-    color:white !important;
-}
-
-.alto-contraste header,
-.alto-contraste .card,
-.alto-contraste nav{
-    background:black !important;
-    color:white !important;
-    border:1px solid #FFD700;
-}
-
-.alto-contraste h1,
-.alto-contraste h2,
-.alto-contraste h3{
-    color:#FFD700 !important;
-}
-
-.alto-contraste .btn{
-    background:#FFD700 !important;
-    color:black !important;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:Arial; background:var(--fundo); color:#111; font-size:20px; line-height:1.7; transition:0.3s;}
+a{text-decoration:none; color:white; font-weight:bold;}
+.container{width:90%; max-width:1200px; margin:auto; padding:40px 0;}
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px;}
+.card{background:white; padding:20px; border-left:6px solid var(--vermelho2); border-radius:10px; box-shadow:0 3px 10px rgba(0,0,0,0.1); transition:0.3s;}
+.card:hover{transform:translateY(-5px);}
+.extra{display:none; margin-top:10px;}
+h1,h2,h3{transition:0.3s;}
+h2{color:var(--vermelho1); margin-bottom:20px;}
+header{text-align:center; position:relative; height:70vh; overflow:hidden; display:flex; flex-direction:column; align-items:center; justify-content:center; color:white;}
+header video{position:absolute; width:100%; height:100%; object-fit:cover; z-index:-1; filter:brightness(40%);}
+header .btn{background:var(--vermelho1); color:white; border:none; padding:10px 15px; margin:5px; border-radius:8px; cursor:pointer; transition:0.3s;}
+header .btn:hover{background:var(--vermelho3); transform:scale(1.05);}
+nav{background:var(--vermelho3); text-align:center; padding:12px; position:sticky; top:0; z-index:1000;}
+nav a{margin:10px;}
+footer{background:var(--vermelho3); color:white; text-align:center; padding:20px; margin-top:50px;}
+.bar{background:#ddd; border-radius:20px; overflow:hidden; margin:8px 0;}
+.bar span{display:block; background:var(--vermelho2); color:white; padding:5px; transition:0.5s;}
+.mapa{background:linear-gradient(135deg,#ffdddd,#fff); padding:20px; border-radius:10px; text-align:center; margin-top:20px;}
+.alto-contraste{background:black !important; color:white !important;}
+.alto-contraste .card{background:black !important; border:1px solid yellow;}
+.alto-contraste h1,h2,h3{color:yellow !important;}
+.alto-contraste .btn{background:yellow !important; color:black !important;}
+/* CARROSSEL */
+.carousel{position:relative; overflow:hidden; border-radius:10px; margin:20px 0;}
+.carousel img{width:100%; display:none; border-radius:10px;}
+.carousel img.active{display:block; animation:fade 1s;}
+@keyframes fade{from{opacity:0;} to{opacity:1;}}
+@media (max-width:768px){body{font-size:18px;}}
 </style>
 </head>
-
 <body>
 
 <header>
-    <h1>Agro e Sustentabilidade</h1>
-
-    <div class="controles">
-        <button class="btn" onclick="aumentarFonte()">Aumentar Texto</button>
-        <button class="btn" onclick="diminuirFonte()">Diminuir Texto</button>
-        <button class="btn" onclick="alternarContraste()">Alto Contraste</button>
-    </div>
+<video autoplay muted loop>
+<source src="https://cdn.pixabay.com/video/2023/03/10/154393-817302878_large.mp4" type="video/mp4">
+</video>
+<h1>Agro Brasil - Educação e Sustentabilidade</h1>
+<p>Explore tecnologia, inovação e cuidado ambiental no agronegócio brasileiro</p>
+<div>
+<button class="btn" onclick="aumentar()">Aumentar</button>
+<button class="btn" onclick="diminuir()">Diminuir</button>
+<button class="btn" onclick="contraste()">Contraste</button>
+</div>
 </header>
 
 <nav>
-    <a href="#importancia">Importância</a>
-    <a href="#sustentabilidade">Sustentabilidade</a>
-    <a href="#tecnologia">Tecnologia</a>
+<a href="#home">Home</a>
+<a href="#importancia">Sobre o Agro</a>
+<a href="#sustentabilidade">Sustentabilidade</a>
+<a href="#tecnologia">Tecnologia</a>
+<a href="#dados">Dados</a>
 </nav>
+
+<div class="container" id="home">
+
+<!-- CARROSSEL -->
+<div class="carousel">
+<img src="https://cdn.pixabay.com/photo/2016/09/18/19/51/soy-1675532_1280.jpg" class="active">
+<img src="https://cdn.pixabay.com/photo/2017/07/31/11/21/cornfield-2559494_1280.jpg">
+<img src="https://cdn.pixabay.com/photo/2016/11/29/10/07/cattle-1867178_1280.jpg">
+</div>
+
+</div>
 
 <div class="container">
 
-<!-- IMPORTÂNCIA -->
+<!-- IMPORTANCIA -->
 <section id="importancia">
 <h2>Importância do Agro</h2>
-
-<div class="card-grid">
-
+<div class="grid">
 <div class="card">
 <h3>Alimentação</h3>
-<p>O agro produz alimentos para todo o mundo.</p>
-
-<button class="btn" onclick="toggleAlimentacao()">Saiba mais</button>
-<div id="maisAlimentacao" style="display:none;">
-<p>O agro garante segurança alimentar, diversidade de produtos e abastecimento constante das cidades.</p>
+<p>Produz alimentos para bilhões de pessoas.</p>
+<button class="btn" onclick="toggle('a')">Saiba mais</button>
+<div id="a" class="extra">
+<p>Garante variedade de produtos, segurança alimentar e acesso a alimentos de qualidade.</p>
 </div>
 </div>
 
 <div class="card">
 <h3>Economia</h3>
-<p>Movimenta a economia brasileira.</p>
-
-<button class="btn" onclick="toggleEconomia()">Saiba mais</button>
-<div id="maisEconomia" style="display:none;">
-<p>O agronegócio representa grande parte do PIB e das exportações do Brasil, gerando empregos e renda.</p>
+<p>Fortalece o Brasil</p>
+<button class="btn" onclick="toggle('b')">Saiba mais</button>
+<div id="b" class="extra">
+<p>Representa grande parte do PIB brasileiro, exportações e geração de empregos diretos e indiretos.</p>
 </div>
 </div>
-
 </div>
 </section>
 
 <!-- SUSTENTABILIDADE -->
 <section id="sustentabilidade">
-<h2>Sustentabilidade no Agro</h2>
-
-<div class="card-grid">
-
-<div class="card">
-<h3>Preservação Ambiental</h3>
-<p>Proteção da natureza e do solo.</p>
-</div>
-
-<div class="card">
-<h3>Uso da Água</h3>
-<p>Uso consciente e eficiente da água.</p>
-</div>
-
-<div class="card">
-<h3>Produção Responsável</h3>
-<p>Produção equilibrada e sustentável.</p>
-</div>
-
+<h2>Sustentabilidade</h2>
+<div class="grid">
+<div class="card"><h3>Preservação do Solo e Natureza</h3><p>Práticas que protegem o solo e o ecossistema.</p></div>
+<div class="card"><h3>Uso Consciente da Água</h3><p>Irrigação eficiente e redução de desperdícios.</p></div>
+<div class="card"><h3>Produção Responsável</h3><p>Equilíbrio entre produtividade e responsabilidade ambiental e social.</p></div>
 </div>
 </section>
 
 <!-- TECNOLOGIA -->
 <section id="tecnologia">
-<h2>Tecnologia Verde</h2>
-
-<div class="card-grid">
-
-<div class="card">
-<h3>Drones e Sensores</h3>
-<p>Monitoramento das plantações.</p>
-
-<button class="btn" onclick="toggleDrones()">Saiba mais</button>
-<div id="maisDrones" style="display:none;">
-<p>Drones ajudam a identificar pragas e melhorar a produtividade da lavoura.</p>
+<h2>Tecnologia no Campo</h2>
+<div class="grid">
+<div class="card"><h3>Drones e Sensores</h3><p>Monitoramento aéreo das plantações.</p></div>
+<div class="card"><h3>IA e Agricultura de Precisão</h3><p>Melhora produtividade e prevê condições climáticas.</p></div>
+<div class="card"><h3>Energia Renovável</h3><p>Uso de energia solar e biomassa nas fazendas.</p></div>
 </div>
-</div>
+</section>
 
-<div class="card">
-<h3>IA e Agricultura de Precisão</h3>
-<p>Uso de inteligência artificial no campo.</p>
+<!-- MAPA -->
+<section class="mapa">
+<h2>Exportação Brasileira</h2>
+<p>Brasil exporta alimentos para mais de 150 países</p>
+<p>🌎 América, Europa, Ásia e África</p>
+</section>
 
-<button class="btn" onclick="toggleIA()">Saiba mais</button>
-<div id="maisIA" style="display:none;">
-<p>A IA analisa clima e solo para melhorar a produção e reduzir desperdícios.</p>
-</div>
-</div>
-
-<div class="card">
-<h3>Energia Renovável</h3>
-<p>Energia limpa no campo.</p>
-
-<button class="btn" onclick="toggleEnergia()">Saiba mais</button>
-<div id="maisEnergia" style="display:none;">
-<p>Energia solar e biomassa reduzem impactos ambientais nas fazendas.</p>
-</div>
-</div>
-
-</div>
+<!-- GRÁFICOS -->
+<section id="dados">
+<h2>Dados do Agro</h2>
+<p>Exportações</p>
+<div class="bar"><span style="width:90%">90%</span></div>
+<p>Empregos</p>
+<div class="bar"><span style="width:70%">70%</span></div>
+<p>Sustentabilidade</p>
+<div class="bar"><span style="width:80%">80%</span></div>
 </section>
 
 </div>
 
+<footer>
+<p>Agro Brasil • Educação e Sustentabilidade • Desenvolvido para estudo e divulgação • ♿ Acessível</p>
+</footer>
+
 <script>
-let tamanho = 20;
-
-function aumentarFonte(){
-    tamanho += 2;
-    document.body.style.fontSize = tamanho + "px";
-}
-
-function diminuirFonte(){
-    if(tamanho > 14){
-        tamanho -= 2;
-        document.body.style.fontSize = tamanho + "px";
-    }
-}
-
-function alternarContraste(){
-    document.body.classList.toggle("alto-contraste");
-}
-
-/* TOGGLES */
-function toggleAlimentacao(){
-    const el = document.getElementById("maisAlimentacao");
-    el.style.display = el.style.display === "none" ? "block" : "none";
-}
-
-function toggleEconomia(){
-    const el = document.getElementById("maisEconomia");
-    el.style.display = el.style.display === "none" ? "block" : "none";
-}
-
-function toggleDrones(){
-    const el = document.getElementById("maisDrones");
-    el.style.display = el.style.display === "none" ? "block" : "none";
-}
-
-function toggleIA(){
-    const el = document.getElementById("maisIA");
-    el.style.display = el.style.display === "none" ? "block" : "none";
-}
-
-function toggleEnergia(){
-    const el = document.getElementById("maisEnergia");
-    el.style.display = el.style.display === "none" ? "block" : "none";
-}
-</script>
-
-</body>
-</html>
+let size=20;
+function aumentar(){size+=2;document.body.style.fontSize=size+"px";}
+function diminuir(){if(size>14){size-=2;document.body.style.fontSize=size+"px";}}
+function contraste(){document.body.classList.toggle("alto-contraste");}
+function toggle(id){const el=document.getElementById(id);el.style.display=el
