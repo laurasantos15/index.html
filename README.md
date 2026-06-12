@@ -1,71 +1,86 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agro & Sustentabilidade - Laura Cristina</title>
-  <style>
-    :root {
-      --rosa: #e75480;
-      --vinho: #7a1030;
-      --bg: #fff5f8;
-    }
-    * { box-sizing: border-box; font-family: Arial, sans-serif; }
-    body { margin: 0; background: var(--bg); color: #333; transition: .3s; }
-    header { background: linear-gradient(135deg, var(--vinho), var(--rosa)); color: #fff; padding: 60px 20px; text-align: center; }
-    nav { background: var(--vinho); padding: 12px; text-align: center; position: sticky; top: 0; }
-    nav a { color: #fff; text-decoration: none; margin: 0 10px; }
-    section { max-width: 1100px; margin: 20px auto; background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 2px 8px rgba(0,0,0,.15); }
-    .btn { background: var(--rosa); color: #fff; border: none; padding: 12px 18px; border-radius: 25px; cursor: pointer; margin: 4px; }
-    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; }
-    .gallery img, .hero { width: 100%; border-radius: 12px; }
-    iframe { width: 100%; height: 420px; border: 0; border-radius: 12px; }
-    .alto-contraste { background: #000; color: #fff; }
-    .alto-contraste section { background: #111; color: #fff; }
-    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.8); overflow: auto; }
-    .modal-content { background: #fff; max-width: 900px; margin: 30px auto; padding: 25px; border-radius: 15px; }
-    .close { float: right; font-size: 30px; cursor: pointer; }
-    footer { background: var(--vinho); color: #fff; text-align: center; padding: 20px; }
-  </style>
-</head>
-<body>
-<header>
-  <h1>Agro & Sustentabilidade</h1>
-  <h2>Laura Cristina</h2>
-  <p>Projeto acadêmico profissional sobre agro, tecnologia e sustentabilidade.</p>
-  <button class="btn" onclick="aumentarTexto()">Aumentar Texto</button>
-  <button class="btn" onclick="diminuirTexto()">Diminuir Texto</button>
-  <button class="btn" onclick="contraste()">Alto Contraste</button>
-</header>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro e Sustentabilidade - Laura Cristina</title>
 
-<nav>
-  <a href="#agro">Agro</a>
-  <a href="#sust">Sustentabilidade</a>
-  <a href="#tec">Tecnologia</a>
-</nav>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<section>
-  <img class="hero" src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80">
-</section>
+    <style>
+        :root {
+            --vinho: #6b0f1a;
+            --vinho-claro: #8f1730;
+            --fundo: #f7f7f7;
+            --texto: #222;
+            --branco: #fff;
+            --rosa: #ff66b2;
+        }
 
-<section id="agro">
-  <h2>O Agronegócio Brasileiro</h2>
-  <p>O agronegócio é um dos principais setores da economia brasileira.</p>
-  <button class="btn" onclick="abrirModal()">Saiba Mais</button>
-</section>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
 
-<section id="sust">
-  <h2>Sustentabilidade</h2>
-  <p>Práticas sustentáveis ajudam a preservar recursos naturais.</p>
-</section>
+        html {
+            scroll-behavior: smooth;
+        }
 
-<section id="tec">
-  <h2>Tecnologia no Campo</h2>
-  <p>Drones, sensores e agricultura de precisão aumentam a produtividade.</p>
-</section>
+        body {
+            background: var(--fundo);
+            color: var(--texto);
+            font-size: 16px;
+            transition: 0.4s;
+        }
 
-<section>
-  <h2>Galeria</h2>
-  <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=800&q=80">
-    <img src="https://images.unsplash.com/photo-1500382017468
+        body.contraste {
+            background: #000;
+            color: var(--rosa);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--vinho), #4a0712);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 1.1rem;
+        }
+
+        nav {
+            background: var(--vinho-claro);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 15px;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            transform: scale(1.05);
+        }
+
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)), url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items:
